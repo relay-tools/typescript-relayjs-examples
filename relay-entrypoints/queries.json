@@ -1,1 +1,3 @@
-{}
+{
+  "8aa70460f97b04dea4549c71282be858": "query RepositoryQuery(\n  $owner: String!\n  $name: String!\n) {\n  repository(owner: $owner, name: $name) {\n    name\n    id\n  }\n}\n"
+}
