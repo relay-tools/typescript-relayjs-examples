@@ -74,7 +74,7 @@ function createRouter() {
  * Match the current location to the corresponding route entry.
  */
 function matchRoute(routes: Route[], location: Location) {
-  const pathname = location.pathname.replace("/bo/app", "");
+  const pathname = location.pathname;
   const matchedRoutes = matchRoutes(routes, pathname);
   if (!Array.isArray(matchedRoutes) || matchedRoutes.length === 0) {
     throw new Error("No route for " + pathname);
