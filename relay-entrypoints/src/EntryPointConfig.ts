@@ -1,8 +1,11 @@
 /** @format */
+import type { EntryPoint } from "react-relay/lib/relay-experimental/EntryPointTypes";
 
-import { EntryPoint } from "react-relay/lib/relay-experimental/EntryPointTypes";
-export function createEntryPoint<Params = {}>(
-  entryPoint: EntryPoint<Params, {}>
-): EntryPoint<Params, {}> {
-  return entryPoint;
+export function createEntryPoint<P>(
+  config: EntryPoint<P, {}>
+): EntryPoint<P, {}> {
+  return {
+    root: config.root,
+    getPreloadProps: config.getPreloadProps,
+  };
 }

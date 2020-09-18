@@ -55,14 +55,19 @@ class JSResourceImpl<T> {
 
 const resourceMap: Map<string, JSResourceImpl<unknown>> = new Map();
 
+export type JSResource<T> = {
+  getModuleIfRequired(): T | null;
+  load(): Promise<T>;
+};
+
 export default function JSResource<T>(
   moduleId: string,
   loader: () => Promise<T>
-) {
+): JSResource<T> {
   let resource = resourceMap.get(moduleId);
   if (resource == null) {
     resource = new JSResourceImpl(loader);
     resourceMap.set(moduleId, resource);
   }
-  return resource;
+  return resource as JSResource<T>;
 }

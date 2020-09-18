@@ -18,12 +18,15 @@ export default class ErrorBoundary extends Component<Props, State> {
     return { hasError: true, error };
   }
 
-  state = {
-    hasError: false,
-    error: null,
-  };
+  constructor(props: Props) {
+    super(props);
+    this.state = {
+      hasError: false,
+      error: null,
+    };
+  }
 
-  async componentDidCatch(error: Error) {
+  componentDidCatch(error: Error) {
     console.error(error);
   }
 

@@ -1,7 +1,7 @@
 /* tslint:disable */
 /* eslint-disable */
 // @ts-nocheck
-/* @relayHash 8aa70460f97b04dea4549c71282be858 */
+/* @relayHash 4a45f359f7fe4a783fae695058a98919 */
 
 import { ConcreteRequest } from "relay-runtime";
 export type RepositoryQueryVariables = {
@@ -10,7 +10,7 @@ export type RepositoryQueryVariables = {
 };
 export type RepositoryQueryResponse = {
     readonly repository: {
-        readonly name: string;
+        readonly nameWithOwner: string;
     } | null;
 };
 export type RepositoryQuery = {
@@ -26,7 +26,7 @@ query RepositoryQuery(
   $name: String!
 ) {
   repository(owner: $owner, name: $name) {
-    name
+    nameWithOwner
     id
   }
 }
@@ -59,7 +59,7 @@ v3 = {
   "alias": null,
   "args": null,
   "kind": "ScalarField",
-  "name": "name",
+  "name": "nameWithOwner",
   "storageKey": null
 };
 return {
@@ -119,7 +119,7 @@ return {
     ]
   },
   "params": {
-    "id": "8aa70460f97b04dea4549c71282be858",
+    "id": "4a45f359f7fe4a783fae695058a98919",
     "metadata": {},
     "name": "RepositoryQuery",
     "operationKind": "query",
@@ -127,5 +127,5 @@ return {
   }
 };
 })();
-(node as any).hash = 'c99a79be71d1a0e4116c58e74ac25a52';
+(node as any).hash = 'eec3c75ce7b55fdc389904b17ee1ba63';
 export default node;

@@ -1,3 +1,4 @@
 {
-  "8aa70460f97b04dea4549c71282be858": "query RepositoryQuery(\n  $owner: String!\n  $name: String!\n) {\n  repository(owner: $owner, name: $name) {\n    name\n    id\n  }\n}\n"
+  "8aa70460f97b04dea4549c71282be858": "query RepositoryQuery(\n  $owner: String!\n  $name: String!\n) {\n  repository(owner: $owner, name: $name) {\n    name\n    id\n  }\n}\n",
+  "4a45f359f7fe4a783fae695058a98919": "query RepositoryQuery(\n  $owner: String!\n  $name: String!\n) {\n  repository(owner: $owner, name: $name) {\n    nameWithOwner\n    id\n  }\n}\n"
 }

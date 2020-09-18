@@ -1,5 +1,9 @@
 {
-  "plugins": ["relay"],
+  "plugins": [
+    "relay",
+    "@babel/plugin-proposal-optional-chaining",
+    "@babel/plugin-proposal-nullish-coalescing-operator"
+  ],
   "presets": [
     "@babel/preset-typescript",
     [

@@ -1,6 +1,6 @@
 /** @format */
 
-import { EntryPoint } from "react-relay/lib/relay-experimental/EntryPointTypes";
+import type { EntryPoint } from "react-relay/lib/relay-experimental/EntryPointTypes";
 
 export function createRoute<Params = {}>(routeConfig: {
   parent?: Route;

@@ -5,22 +5,23 @@ import { createBrowserHistory, Location } from "history";
 import { matchRoutes, MatchedRoute } from "react-router-config";
 
 import {
+  // @ts-expect-error
   loadEntryPoint,
   EntryPointContainer,
   RelayEnvironmentProvider,
 } from "react-relay/hooks";
 
 import ErrorBoundary from "./ErrorBoundary";
+import { RelayEnvironment } from "./RelayEnvironment";
 const context = require.context(".", true, /\.route\.ts$/);
 
-const routes = context.keys().map((moduleId: string) => {
+const routes = context.keys().map((moduleId) => {
   const module = context(moduleId);
   return module.default;
 });
 
 const environmentProvider = {
   getEnvironment() {
-    // TODO: add environment
     return RelayEnvironment;
   },
 };

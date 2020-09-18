@@ -9,12 +9,12 @@ export default function Repository(props: {
     graphql`
       query RepositoryQuery($owner: String!, $name: String!) {
         repository(owner: $owner, name: $name) {
-          name
+          nameWithOwner
         }
       }
     `,
     props.queries.repositoryQuery
   );
 
-  return <h1>{data.repository?.name}</h1>;
+  return <h1>{data.repository?.nameWithOwner}</h1>;
 }
