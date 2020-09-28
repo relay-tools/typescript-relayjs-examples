@@ -5,11 +5,13 @@ class JSResourceImpl<T> {
   private _result: T | null;
   private _error: unknown | null;
   private _promise: Promise<T> | null;
-  constructor(loader: () => Promise<T>) {
+  private _moduleId: string;
+  constructor(moduleId: string, loader: () => Promise<T>) {
     this._loader = loader;
     this._result = null;
     this._error = null;
     this._promise = null;
+    this._moduleId = moduleId;
   }
 
   load() {
@@ -51,6 +53,9 @@ class JSResourceImpl<T> {
       throw this._promise;
     }
   }
+  getModuleId(): string {
+    return this._moduleId;
+  }
 }
 
 const resourceMap: Map<string, JSResourceImpl<unknown>> = new Map();
@@ -61,12 +66,13 @@ export type JSResource<T> = {
 };
 
 export default function JSResource<T>(
-  moduleId: string,
+  moduleId: string | number,
   loader: () => Promise<T>
 ): JSResource<T> {
+  moduleId = moduleId.toString();
   let resource = resourceMap.get(moduleId);
   if (resource == null) {
-    resource = new JSResourceImpl(loader);
+    resource = new JSResourceImpl(moduleId, loader);
     resourceMap.set(moduleId, resource);
   }
   return resource as JSResource<T>;
