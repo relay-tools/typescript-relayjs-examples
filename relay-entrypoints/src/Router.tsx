@@ -122,7 +122,7 @@ function Router() {
   return (
     <RelayEnvironmentProvider environment={RelayEnvironment}>
       <ErrorBoundary renderError={() => "Error"}>
-        <Suspense fallback="">{routeComponent}</Suspense>
+        <Suspense fallback="Don't show this">{routeComponent}</Suspense>
       </ErrorBoundary>
     </RelayEnvironmentProvider>
   );

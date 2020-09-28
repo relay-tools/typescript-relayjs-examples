@@ -105,12 +105,20 @@ module.exports = [
           </head>
           <body>
             <div id="app"></div>
-            ${htmlWebpackPlugin.tags.bodyTags}
+            ${htmlWebpackPlugin.tags.bodyTags.slice(0, 1)}
+            <script src="/0.js"></script>
+            <script src="/1.js"></script>
+            ${htmlWebpackPlugin.tags.bodyTags.slice(1)}
           </body>
         </html>
       `,
       }),
     ],
+    optimization: {
+      runtimeChunk: {
+        name: (entrypoint) => `runtime~${entrypoint.name}`,
+      },
+    },
   },
   {
     target: "node",

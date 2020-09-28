@@ -3,7 +3,7 @@
 import { createEntryPoint } from "./EntryPointConfig";
 
 export default createEntryPoint({
-  root: () => import("./Root").then((module) => module.default),
+  root: () => import("./Root"),
   getPreloadProps() {
     return {};
   },
